@@ -40,6 +40,7 @@ class BotInfo extends Command {
             .addField("Owners", `${admins.map(m => `<@!${m}>`).join(", ")}`, true)
             .addField("Created At", this.client.user.createdAt.toString())
             .addField("\u200b", `\`\`\`asciidoc\n${SystemString}\`\`\``)
+            .addField("GitHub (Source Code)", "[Click Here](https://github.com/Snowflake107/Erbium)")
             .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
             .setTimestamp();
 
