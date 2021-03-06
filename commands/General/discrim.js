@@ -19,7 +19,7 @@ class Discrim extends Command {
 
         const embed = new MessageEmbed()
             .setTitle(`Users with discriminator #${discrim}`)
-            .setDescription(this.client.users.cache.filter(u => u.discriminator == discrim).slice(0, 10).map((m, i) => `${i+1}. ${m}`).join("\n"))
+            .setDescription(this.client.users.cache.filter(u => u.discriminator == discrim).array().slice(0, 10).map((m, i) => `${i+1}. ${m.tag}`).join("\n"))
             .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
             .setTimestamp()
             .setColor("RANDOM");

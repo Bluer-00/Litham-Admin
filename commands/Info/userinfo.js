@@ -13,7 +13,7 @@ class UserInfo extends Command {
         });
     }
 
-    async run(message) {
+    async run(message, args) {
         const user = message.mentions.users.first() || this.client.resolveUser(args.join(" ")) || message.author;
 
         const embed = new MessageEmbed()

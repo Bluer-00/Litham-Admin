@@ -1,7 +1,7 @@
 # Erbium
 Erbium is a multipurpose discord bot.
 
-![logo](https://raw.githubusercontent.com/Snowflake107/Erbium/main/assets/erlogo.png)
+![logo](https://raw.githubusercontent.com/Snowflake107/Erbium/main/assets/ersm.png)
 
 # Status
 Under Development 🚧
