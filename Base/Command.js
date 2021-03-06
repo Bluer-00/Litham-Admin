@@ -18,10 +18,15 @@ class Command {
             category: null,
             cooldown: 3000
         };
+        this.path = null;
     }
 
     setCategory(cat, force = false) {
         this.help.category = !force && this.help.category ? this.help.category : cat;
+    }
+
+    setPath(path) {
+        this.path = path;
     }
 
     get category() {

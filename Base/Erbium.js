@@ -52,6 +52,7 @@ class Erbium extends Client {
                 const command = new cmd(this);
 
                 command.setCategory(CAT);
+                command.setPath(`${commandsDir}/${CAT}/${c}`);
 
                 this.commands.setCommand(command.help.name, command);
                 command.help.aliases.forEach(alias => this.commands.setAlias(alias, command.help.name));
