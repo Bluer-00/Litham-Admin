@@ -37,6 +37,7 @@ class BotInfo extends Command {
             .addField("Discriminator", this.client.user.discriminator, true)
             .addField("Type", this.client.user.bot ? "Bot" : "User", true)
             .addField("Prefix", message.guild.prefix, true)
+            .addField("ID", this.client.user.id, true)
             .addField("Owners", `${admins.map(m => `<@!${m}>`).join(", ")}`, true)
             .addField("Created At", this.client.user.createdAt.toString())
             .addField("\u200b", `\`\`\`asciidoc\n${SystemString}\`\`\``)
