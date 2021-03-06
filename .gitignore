@@ -1,0 +1,16 @@
+# Editor Config
+.vscode/
+
+# Secrets/Config
+.env
+config.js
+
+# Modules
+node_modules/
+
+# Lockfiles
+package-lock.json
+yarn.lock
+
+# Logs
+yarn-error.log
