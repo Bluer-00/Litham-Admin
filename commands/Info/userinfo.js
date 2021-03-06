@@ -14,6 +14,7 @@ class UserInfo extends Command {
     }
 
     async run(message) {
+        const user = message.mentions.users.first() || this.client.resolveUser(args.join(" ")) || message.author;
 
         const embed = new MessageEmbed()
             .setAuthor("User Information", message.guild.iconURL())
@@ -21,9 +22,9 @@ class UserInfo extends Command {
             .setColor("RANDOM")
             .addField("Name", user.username, true)
             .addField("Discriminator", user.discriminator, true)
-            .addField("Type", this.client.user.bot ? "Bot" : "User", true)
+            .addField("Type", user.bot ? "Bot" : "User", true)
             .addField("ID", user.id, true)
-            .addField("Created At", this.client.user.createdAt.toString())
+            .addField("Created At", user.createdAt.toString())
             .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
             .setTimestamp();
 
