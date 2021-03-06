@@ -1,14 +1,20 @@
 # Erbium
 Erbium is a multipurpose discord bot.
 
+![logo](https://raw.githubusercontent.com/Snowflake107/Erbium/main/assets/logo.png)
+
 # Status
 Under Development 🚧
 
 # Installing
 👉 Clone this repo: `git clone https://github.com/Snowflake107/Erbium`
+
 👉 Install dependencies with `yarn` or `npm install`
+
 👉 Rename `.env.example` to `.env` and put your bot token there
+
 👉 Rename `config.example.js` to `config.js` and fill up
+
 👉 Start your bot using `yarn start` or `npm start`
 
 # Requirements
