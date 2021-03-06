@@ -1,5 +1,6 @@
 const moment = require("moment");
 require("moment-duration-format")(moment);
+const client = require("../client");
 
 class Util {
 
