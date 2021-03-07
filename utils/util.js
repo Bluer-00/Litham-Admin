@@ -1,6 +1,5 @@
 const moment = require("moment");
 require("moment-duration-format")(moment);
-const client = require("../client");
 
 class Util {
 
@@ -12,13 +11,13 @@ class Util {
         return moment.duration(dur).format(" M [Month(s)], D [Day(s)], H [Hour(s)], m [Minute(s)], s [Second(s)]");
     }
 
-    static cleanText(text) {
+    static cleanText(text, token = process.env.DISCORD_TOKEN) {
         if (typeof text !== "string") text = require("util").inspect(text, { depth: 2 });
 
         text = text
             .replace(/`/g, "`" + String.fromCharCode(8203))
             .replace(/@/g, "@" + String.fromCharCode(8203))
-            .replace(new RegExp(client.token, "g"), "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0");
+            .replaceAll(token ?? "", "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0");
 
         return text;
     }

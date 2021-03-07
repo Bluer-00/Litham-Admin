@@ -24,8 +24,8 @@ class Message extends Event {
 
         // ignore invalid commands
         if (!command) return;
-        if ((command.category === "Developer" || command.ownerOnly) && !message.author.dev) return message.channel.send("❌ | You don't have `DEVELOPER` permission to use this command.");
-        if (!message.member.permissions.has(command.help.permissions)) return message.channel.send(`❌ | You don't have ${command.help.permissions.map(m => `\`${m}\``).join(", ")} permission(s) to use this command!`);
+        if ((command.category === "Developer" || command.ownerOnly) && !message.author.dev) return message.reply("❌ | You don't have `DEVELOPER` permission to use this command.");
+        if (!message.member.permissions.has(command.help.permissions)) return message.reply(`❌ | You don't have ${command.help.permissions.map(m => `\`${m}\``).join(", ")} permission(s) to use this command!`);
 
         const cooldown = cooldowns.get(`${command.help.name}_${message.author.id}`);
         if (cooldown && (command.cooldown) - (Date.now() - cooldown) > 0) {
@@ -36,7 +36,7 @@ class Message extends Event {
         try {
             await command.run(message, args);
         } catch(e) {
-            await message.channel.send(`❌ | **Error Ahoy!**\`\`\`js\n${e.toString()}\`\`\``).catch(() => {});
+            await message.reply(`❌ | **Error Ahoy!**\`\`\`js\n${e.toString()}\`\`\``).catch(() => {});
             logger.error(`Command: ${command.help.name} - ${e.toString()}`);
         }
     }
