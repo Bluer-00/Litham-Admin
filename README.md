@@ -22,7 +22,7 @@ Under Development 🚧
 **Master version**
 
 ## Node.js
-**v14** or higher
+**v15** or higher
 
 # License
 **GPL-3.0**

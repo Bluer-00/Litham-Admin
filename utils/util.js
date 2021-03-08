@@ -15,8 +15,8 @@ class Util {
         if (typeof text !== "string") text = require("util").inspect(text, { depth: 2 });
 
         text = text
-            .replace(/`/g, "`" + String.fromCharCode(8203))
-            .replace(/@/g, "@" + String.fromCharCode(8203))
+            .replaceAll("`", "`" + String.fromCharCode(8203))
+            .replaceAll("@", "@" + String.fromCharCode(8203))
             .replaceAll(token ?? "", "mfa.VkO_2G4Qv3T--NO--lWetW_tjND--TOKEN--QFTm6YGtzq9PH--4U--tG0");
 
         return text;

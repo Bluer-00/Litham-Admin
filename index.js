@@ -14,10 +14,7 @@ Object.defineProperties(globalThis, {
 });
 
 // load structures
-require("./Structures/Guild.js");
-require("./Structures/Message.js");
-require("./Structures/User.js");
-require("./Structures/Member.js");
+require("./Structures/loader.js").load();
 
 // instantiate client
 require("./client.js");
