@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Snowflake107/Erbium.git"
+    "url": "git+https://github.com/erbiumbot/Erbium.git"
   },
   "author": "Snowflake107",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/Snowflake107/Erbium/issues"
+    "url": "https://github.com/erbiumbot/Erbium/issues"
   },
-  "homepage": "https://github.com/Snowflake107/Erbium#readme",
+  "homepage": "https://github.com/erbiumbot/Erbium#readme",
   "dependencies": {
     "canvacord": "^5.1.0",
     "discord.js": "discordjs/discord.js",
