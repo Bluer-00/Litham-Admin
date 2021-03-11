@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/erbiumbot/Erbium#readme",
   "dependencies": {
+    "@devsnowflake/quick.db": "^2.0.3",
     "canvacord": "^5.1.0",
     "discord.js": "discordjs/discord.js",
     "dotenv": "^8.2.0",

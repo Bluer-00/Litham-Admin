@@ -8,7 +8,13 @@ Structures.extend("Guild", BaseGuild => {
         }
 
         get prefix() {
-            return this.client.config.DEFAULT_PREFIX;
+            if (!this.client.database.guilds.has(`prefix_${this.id}`)) this.client.database.guilds.set(`prefix_${this.id}`, this.client.config.DEFAULT_PREFIX);
+            return this.client.database.guilds.get(`prefix_${this.id}`);
+        }
+
+        set prefix(prefix) {
+            prefix = typeof prefix === "string" ? prefix : this.client.config.DEFAULT_PREFIX;
+            this.client.database.guilds.set(`prefix_${this.id}`, prefix);
         }
 
     }

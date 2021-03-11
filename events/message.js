@@ -11,8 +11,11 @@ class Message extends Event {
     async run(message) {
         // ignore dm messages
         if (message.channel.type === "dm") return;
-        const prefix = this.client.config.DEFAULT_PREFIX;
         
+        const prefix = message.guild.prefix;
+        
+        if (new RegExp(`^<@!?${this.client.user.id}>( |)$`).test(message.content)) return message.reply(`My prefix for this server is **"\`${prefix}\`"**!`);
+
         // ignore non-prefix
         if (message.content.toLowerCase().indexOf(prefix.toLowerCase()) !== 0) return;
 

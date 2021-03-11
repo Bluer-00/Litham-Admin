@@ -3,6 +3,7 @@ const fs = require("fs");
 const config = require("../config.js");
 const Command = require("../utils/Command.js");
 const logger = require("../utils/Logger.js");
+const Database = require("./Database");
 
 class Erbium extends Client {
 
@@ -28,10 +29,15 @@ class Erbium extends Client {
         this.commands = new Command(this);
         this.config = config;
         this.utils = require("../utils/util");
+        this.db = new Database(this);
 
         Object.defineProperties(this, {
             config: { enumerable: false },
         });
+    }
+
+    get database() {
+        return this.db;
     }
 
     registerCommands() {
