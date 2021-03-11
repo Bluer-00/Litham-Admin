@@ -61,6 +61,8 @@ class Help extends Command {
             .addField("Category", command.help.category, true)
             .addField("Description", command.help.description, true)
             .addField("Cooldown", `${Math.floor(command.help.cooldown ? command.help.cooldown / 1000 : 1)} Second(s)`, true)
+            .addField("Owner Only", command.help.ownerOnly ? "Yes" : "No", true)
+            .addField("Permissions", command.help.permissions.length ? command.help.permissions.map(m => `\`${m}\``).join(", ") : `None`)
             .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
             .setTimestamp();
 

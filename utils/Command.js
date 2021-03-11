@@ -22,6 +22,10 @@ class Command {
         return this.commands.get(name) || this.commands.get(this.aliases.get(name));
     }
 
+    has(name) {
+        return this.commands.has(name) || this.commands.has(this.aliases.get(name));
+    }
+
     setCommand(name, command) {
         this.commands.set(name, command);
     }

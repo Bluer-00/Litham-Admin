@@ -9,6 +9,9 @@ class Message extends Event {
     }
 
     async run(message) {
+        // ignore bots
+        if (message.author.bot) return;
+        
         // ignore dm messages
         if (message.channel.type === "dm") return;
         
@@ -26,7 +29,18 @@ class Message extends Event {
         const command = this.client.commands.resolve(cmd);
 
         // ignore invalid commands
-        if (!command) return;
+        if (!command) {
+            const tag = this.client.database.tags.get(`${cmd}_${message.guild.id}`);
+            if (!tag) return;
+            return message.channel.send(tag.content, { split: true, disableMentions: "everyone" }).then(() => {
+                const struct = {
+                    ...tag,
+                    uses: tag.uses + 1
+                };
+
+                this.client.database.tags.set(`${cmd}_${message.guild.id}`, struct);
+            }).catch(() => {});
+        };
         if ((command.category === "Developer" || command.ownerOnly) && !message.author.dev) return message.reply("❌ | You don't have `DEVELOPER` permission to use this command.");
         if (!message.member.permissions.has(command.help.permissions)) return message.reply(`❌ | You don't have ${command.help.permissions.map(m => `\`${m}\``).join(", ")} permission(s) to use this command!`);
 
