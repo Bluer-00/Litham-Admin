@@ -14,3 +14,6 @@ yarn.lock
 
 # Logs
 yarn-error.log
+
+# database
+data/
