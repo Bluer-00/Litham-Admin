@@ -18,3 +18,6 @@ require("./Structures/loader.js").load();
 
 // instantiate client
 require("./client.js");
+
+// load web server
+require("./dashboard/index");
