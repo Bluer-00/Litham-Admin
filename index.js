@@ -1,4 +1,5 @@
 const { config } = require("dotenv");
+const NodeFetch = require("node-fetch");
 
 // load .env
 config();
@@ -6,7 +7,7 @@ config();
 // need some stuff globally
 Object.defineProperties(globalThis, {
     fetch: {
-        value: require("node-fetch"),
+        value: NodeFetch.default ?? NodeFetch,
         writable: true,
         configurable: true,
         enumerable: false
