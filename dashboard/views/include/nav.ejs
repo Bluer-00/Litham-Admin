@@ -31,21 +31,28 @@
                 </li>
             
             <% if (user) { %>
-                    <li class="mr-3">
-                        <a class="inline-block text-white font-bold no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                            href="/authorize/logout">Logout</a>
-                    </li>
                 </ul>
-                <a id="navAction" href="/dashboard"
-                    class="mx-auto lg:mx-0 hover:no-underline bg-white text-black font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                    Dashboard
-                </a>
+                    <div class="dropdown inline-block relative">
+                        <button class="text-white font-semibold py-2 px-4 rounded inline-flex items-center">
+                            <span class="mr-1"><%= user.username %></span>
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                        </button>
+                        <ul class="dropdown-menu absolute hidden text-black pt-1">
+                            <li><a class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                    href="/dashboard">Dashboard</a></li>
+                            <hr />
+                            <li><a class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                    href="/authorize/logout">Logout</a></li>
+                        </ul>
+                    </div>
             <% } else { %>
+                <li class="mr-3">
+                    <a class="inline-block text-white font-bold no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                        href="/authorize">Login</a>
+                </li>
                 </ul>
-                <a id="navAction" href="/authorize"
-                    class="mx-auto lg:mx-0 hover:no-underline bg-white text-black font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                    Login
-                </a>
             <% } %>
         </div>
     </div>
