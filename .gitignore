@@ -1,5 +1,7 @@
 # Editor Config
 .vscode/
+.npm/
+.config/
 
 # Secrets/Config
 .env
