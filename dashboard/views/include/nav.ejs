@@ -29,11 +29,24 @@
                     <a class="inline-block text-white font-bold no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
                         href="/discord">Discord</a>
                 </li>
-            </ul>
-            <button id="navAction"
-                class="mx-auto lg:mx-0 hover:no-underline bg-white text-black font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-                Invite
-            </button>
+            
+            <% if (user) { %>
+                    <li class="mr-3">
+                        <a class="inline-block text-white font-bold no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                            href="/authorize/logout">Logout</a>
+                    </li>
+                </ul>
+                <a id="navAction" href="/dashboard"
+                    class="mx-auto lg:mx-0 hover:no-underline bg-white text-black font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Dashboard
+                </a>
+            <% } else { %>
+                </ul>
+                <a id="navAction" href="/authorize"
+                    class="mx-auto lg:mx-0 hover:no-underline bg-white text-black font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                    Login
+                </a>
+            <% } %>
         </div>
     </div>
     <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
