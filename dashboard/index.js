@@ -4,9 +4,7 @@ const client = require("../client");
 const Logger = require("../utils/Logger");
 const helmet = require("helmet");
 const session = require("express-session");
-// const favicon = require("express-favicon");
 
-// app.use(favicon("./assets/favicon.ico"));
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -23,7 +21,7 @@ app.set("DISCORD_CLIENT", client);
 
 // routes
 app.use("/", require("./routes/main"));
-app.use("/auth", require("./routes/auth"));
+app.use("/authorize", require("./routes/auth"));
 app.use("/dashboard", require("./routes/dashboard"));
 
 /* 404 */
