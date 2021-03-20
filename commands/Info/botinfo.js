@@ -32,6 +32,7 @@ class BotInfo extends Command {
         const embed = new MessageEmbed()
             .setAuthor("Bot Information", message.guild.iconURL())
             .setThumbnail(this.client.user.displayAvatarURL({ size: 4096 }))
+            .setDescription(`${this.client.user.username} is an open-source multipurpose discord bot developed by **[Snowflake](https://github.com/Snowflake107)**.`)
             .setColor("RANDOM")
             .addField("Name", this.client.user.username, true)
             .addField("Discriminator", this.client.user.discriminator, true)
