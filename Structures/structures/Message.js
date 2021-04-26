@@ -20,5 +20,19 @@ Structures.extend("Message", BaseMessage => {
             };
         }
 
+        get commandFlag() {
+            const regex = /--([\wа-я]+)(\s([\wа-я]+))?/gi;
+            const table = {
+                "true": true,
+                "false": false,
+                "undefined": undefined,
+                "null": null
+            };
+
+            return (this.args.default.pop().join(" ").match(regex) ?? []).map((el) => {
+                const [tag, val] = el.slice(2).split(" ");
+                return { [tag]: table[val] ?? val ?? null };
+            });
+        }
     }
 })

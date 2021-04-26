@@ -23,7 +23,7 @@ class Avatar extends Command {
             .setTimestamp()
             .setColor(0x4d5e94);
 
-        return message.channel.send(embed);
+        return message.reply(embed);
     }
 
 }

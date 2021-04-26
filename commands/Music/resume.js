@@ -1,14 +1,14 @@
 const Command = require("../../Base/Command");
 
-class Stop extends Command {
+class Resume extends Command {
 
     constructor(client) {
         super(client);
 
         this.config({
-            name: "stop",
+            name: "resume",
             aliases: [],
-            description: "Stops the player",
+            description: "Resume the player",
             permissions: []
         });
     }
@@ -19,12 +19,15 @@ class Stop extends Command {
 
         const queue = this.client.player.getQueue(message);
         if (!queue) return message.reply("❌ | I am not playing anything?");
+        if (!queue.paused) return message.reply("❌ | Pause the song to resume");
 
-        queue.player.stop(message);
+        queue.player.resume(message);
+        queue.player.pause(message);
+        queue.player.resume(message);
 
-        message.reply(`✅ | Stopped!`);
+        message.reply("▶ | Resumed!");
     }
 
 }
 
-module.exports = Stop;
+module.exports = Resume;

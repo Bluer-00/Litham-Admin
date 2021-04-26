@@ -7,7 +7,7 @@ class BotDisconnect extends Event {
     }
 
     run(message) {
-        void message.channel.send("❌ | I have been disconnected from the voice channel!");
+        void message.reply("❌ | I have been disconnected from the voice channel!");
     }
 
 }

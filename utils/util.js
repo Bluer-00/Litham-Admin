@@ -1,3 +1,4 @@
+const { GuildMember } = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format")(moment);
 
@@ -26,6 +27,25 @@ class Util {
         return `${text}`.split("").reverse().join("");
     }
 
+    static get buttons() {
+        return {
+            BLURPLE: 1,
+            GRAY: 2,
+            GREY: 2,
+            GREEN: 3,
+            RED: 4,
+            URL: 5,
+            LINK: 5
+        };
+    }
+
+    static atob(text) {
+        return Buffer.from(text ?? "", "base64").toString("utf-8");
+    }
+
+    static btoa(text) {
+        return Buffer.from(text ?? "").toString("base64");
+    }
 }
 
 module.exports = Util;

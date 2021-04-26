@@ -7,7 +7,7 @@ class PlaylistAdd extends Event {
     }
 
     run(message, queue, playlist) {
-        void message.channel.send(`✅ | Playlist **${playlist?.title ?? "Unknown Title"}** has been added to the queue!`);
+        void message.reply(`✅ | Playlist **${playlist?.title ?? "Unknown Title"}** has been added to the queue!`);
     }
 
 }

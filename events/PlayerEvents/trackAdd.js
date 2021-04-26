@@ -7,7 +7,7 @@ class TrackAdd extends Event {
     }
 
     run(message, queue, track) {
-        void message.channel.send(`✅ | Track **${track.title}** by **${track.author ?? "Unknown Author"}** has been added to the queue!`);
+        void message.reply(`✅ | Track **${track.title}** by **${track.author ?? "Unknown Author"}** has been added to the queue!`);
     }
 
 }

@@ -17,11 +17,11 @@ class Rip extends Command {
     async run(message, args) {
         const user = message.mentions.users.first() || this.client.resolveUser(args.join(" ")) || message.author;
 
-        const m = await message.channel.send("⏱ | Please wait...");
+        const m = await message.reply("⏱ | Please wait...");
         const img = await Canvacord.rip(user.displayAvatarURL({ format: "png", size: 2048 }));
         await m.delete().catch(() => { });
 
-        return message.channel.send(new MessageAttachment(img, "rip.png"));
+        return message.reply(new MessageAttachment(img, "rip.png"));
     }
 
 }

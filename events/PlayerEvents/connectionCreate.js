@@ -7,7 +7,7 @@ class ConnectionCreate extends Event {
     }
 
     run(message, connection) {
-        void message.channel.send(`✅ | Connected to the channel **${connection.channel.name}** [Video Codec: \`${connection.authentication.video_codec}\` | Audio Codec: \`${connection.authentication.audio_codec}\`]`);
+        void message.reply(`✅ | Connected to the channel **${connection.channel.name}** [Video Codec: \`${connection.authentication.video_codec}\` | Audio Codec: \`${connection.authentication.audio_codec}\`]`);
     }
 
 }

@@ -17,11 +17,11 @@ class Affect extends Command {
     async run(message, args) {
         const user = message.mentions.users.first() || this.client.resolveUser(args.join(" ")) || message.author;
 
-        const m = await message.channel.send("⏱ | Please wait...");
+        const m = await message.reply("⏱ | Please wait...");
         const img = await Canvacord.affect(user.displayAvatarURL({ format: "png", size: 2048 }));
         await m.delete().catch(() => { });
 
-        return message.channel.send(new MessageAttachment(img, "affect.png"));
+        return message.reply(new MessageAttachment(img, "affect.png"));
     }
 
 }

@@ -46,7 +46,7 @@ class BotInfo extends Command {
             .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
             .setTimestamp();
 
-        return message.channel.send(embed);
+        return message.reply(embed);
     }
 }
 

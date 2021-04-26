@@ -14,17 +14,17 @@ class Shuffle extends Command {
     }
 
     async run(message, args) {
-        if (!message.member.voice.channel) return message.channel.send("❌ | You are not in a voice channel!");
-        if (message.guild.me.voice.channel && message.guild.me.voice.channelID !== message.member.voice.channelID) return message.channel.send("❌ | You are not in my voice channel!");
+        if (!message.member.voice.channel) return message.reply("❌ | You are not in a voice channel!");
+        if (message.guild.me.voice.channel && message.guild.me.voice.channelID !== message.member.voice.channelID) return message.reply("❌ | You are not in my voice channel!");
 
         const queue = this.client.player.getQueue(message);
-        if (!queue) return message.channel.send("❌ | I am not playing anything?");
+        if (!queue) return message.reply("❌ | I am not playing anything?");
 
-        if (queue.tracks.length < 7) return message.channel.send("❌ | You need to have more than 7 songs to shuffle!");
+        if (queue.tracks.length < 7) return message.reply("❌ | You need to have more than 7 songs to shuffle!");
 
         queue.player.shuffle(message);
 
-        message.channel.send(`✅ | Shuffled!`);
+        message.reply(`🔀 | Shuffled!`);
     }
 
 }

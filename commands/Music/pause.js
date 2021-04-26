@@ -1,14 +1,14 @@
 const Command = require("../../Base/Command");
 
-class Stop extends Command {
+class Pause extends Command {
 
     constructor(client) {
         super(client);
 
         this.config({
-            name: "stop",
+            name: "pause",
             aliases: [],
-            description: "Stops the player",
+            description: "Pause the player",
             permissions: []
         });
     }
@@ -18,13 +18,13 @@ class Stop extends Command {
         if (message.guild.me.voice.channel && message.guild.me.voice.channelID !== message.member.voice.channelID) return message.reply("❌ | You are not in my voice channel!");
 
         const queue = this.client.player.getQueue(message);
-        if (!queue) return message.reply("❌ | I am not playing anything?");
+        if (!queue || queue.paused) return message.reply("❌ | I am not playing anything?");
 
-        queue.player.stop(message);
+        queue.player.pause(message);
 
-        message.reply(`✅ | Stopped!`);
+        message.reply("⏸ | Paused!");
     }
 
 }
 
-module.exports = Stop;
+module.exports = Pause;

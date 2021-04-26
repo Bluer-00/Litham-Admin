@@ -7,7 +7,7 @@ class QueueEnd extends Event {
     }
 
     run(message) {
-        void message.channel.send("✅ | Queue ended!");
+        void message.reply("✅ | Queue ended!");
     }
 
 }

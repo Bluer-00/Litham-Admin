@@ -32,7 +32,7 @@ class YouTubeSearch extends Command {
             .setTimestamp()
             .setColor("RED");
 
-        return message.channel.send(embed);
+        return message.reply(embed);
     }
 
 }

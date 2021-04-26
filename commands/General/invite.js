@@ -21,7 +21,7 @@ class Invite extends Command {
             .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
             .setTimestamp();
 
-        message.channel.send(embed);
+        message.reply(embed);
     }
 
 }

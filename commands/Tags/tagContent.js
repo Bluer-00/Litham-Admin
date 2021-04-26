@@ -23,7 +23,7 @@ class TagContent extends Command {
 
         const data = this.client.database.tags.get(`${tagname.toLowerCase()}_${message.guild.id}`);
 
-        return message.channel.send(this.clean(Util.escapeMarkdown(data.content)), { split: true, disableMentions: "everyone" });
+        return message.reply(this.clean(Util.escapeMarkdown(data.content)), { split: true, disableMentions: "everyone" });
     }
 
     clean(text) {

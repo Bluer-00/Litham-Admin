@@ -14,11 +14,11 @@ class Play extends Command {
     }
 
     async run(message, args) {
-        if (!message.member.voice.channel) return message.channel.send("❌ | You are not in a voice channel!");
-        if (message.guild.me.voice.channel && message.guild.me.voice.channelID !== message.member.voice.channelID) return message.channel.send("❌ | You are not in my voice channel!");
+        if (!message.member.voice.channel) return message.reply("❌ | You are not in a voice channel!");
+        if (message.guild.me.voice.channel && message.guild.me.voice.channelID !== message.member.voice.channelID) return message.reply("❌ | You are not in my voice channel!");
         
         const query = args.join(" ");
-        if (!query) return message.channel.send("❌ | Please include a search query!");
+        if (!query) return message.reply("❌ | Please include a search query!");
 
         await this.client.player.play(message, query, true);
     }

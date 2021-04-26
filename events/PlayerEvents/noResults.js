@@ -7,7 +7,7 @@ class NoResults extends Event {
     }
 
     run(message, query) {
-        void message.channel.send(`❌ | No results were found for **${query}**!`);
+        void message.reply(`❌ | No results were found for **${query}**!`);
     }
 
 }

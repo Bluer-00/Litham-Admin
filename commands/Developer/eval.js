@@ -15,16 +15,18 @@ class Eval extends Command {
     }
 
     async run(message, args) {
-        const code = args.join(" ");
-        if (!code) return message.channel.send("❌ | Please specify code to eval!");
+        let code = args.join(" ");
+        if (!code) return message.reply("❌ | Please specify code to eval!");
+
+        const awaiter = message.commandFlag.find(x => "await" in x);
+        if (awaiter) code = code.replace("--await", "").trim();
 
         try {
-            let ev = eval(code);
-            ev = this.client.utils.cleanText(ev, this.client.token);
+            const ev = this.client.utils.cleanText(awaiter ? await eval(code) : eval(code), this.client.token);
 
-            return message.channel.send(ev, { code: "js", split: true });
+            return message.reply(ev, { code: "js", split: true });
         } catch (e) {
-            return message.channel.send(`${e}`, { code: "js", split: true });
+            return message.reply(`${e}`, { code: "js", split: true });
         }
     }
 

@@ -32,7 +32,7 @@ class Help extends Command {
                 x++;
             }
 
-            return message.channel.send(embed);
+            return message.reply(embed);
         }
 
         if (category.some(q => q === query)) {
@@ -47,11 +47,11 @@ class Help extends Command {
             const cmd = this.client.commands.commands.filter(cmd => cmd.help.category === ctg).map(m => `\`${m.help.name}\``);
             embed.setDescription(cmd.join(", "));
 
-            return message.channel.send(embed);
+            return message.reply(embed);
         }
 
         const command = this.client.commands.resolve(query);
-        if (!command) return message.channel.send("❌ | Command not found!");
+        if (!command) return message.reply("❌ | Command not found!");
 
         const embed = new MessageEmbed()
             .setTitle("Command Info")
@@ -66,7 +66,7 @@ class Help extends Command {
             .setFooter(`Requested by: ${message.author.tag}`, message.author.displayAvatarURL())
             .setTimestamp();
 
-        return message.channel.send(embed);
+        return message.reply(embed);
     }
 
 }

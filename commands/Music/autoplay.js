@@ -1,14 +1,14 @@
 const Command = require("../../Base/Command");
 
-class Stop extends Command {
+class AutoPlay extends Command {
 
     constructor(client) {
         super(client);
 
         this.config({
-            name: "stop",
+            name: "autoplay",
             aliases: [],
-            description: "Stops the player",
+            description: "Toggle autoplay",
             permissions: []
         });
     }
@@ -18,13 +18,13 @@ class Stop extends Command {
         if (message.guild.me.voice.channel && message.guild.me.voice.channelID !== message.member.voice.channelID) return message.reply("❌ | You are not in my voice channel!");
 
         const queue = this.client.player.getQueue(message);
-        if (!queue) return message.reply("❌ | I am not playing anything?");
+        if (!queue || queue.paused) return message.reply("❌ | I am not playing anything?");
 
-        queue.player.stop(message);
+        const status = queue.player.setAutoPlay(message, !Boolean(queue.autoPlay));
 
-        message.reply(`✅ | Stopped!`);
+        message.reply(`▶ | Auto play mode ${status ? "enabled" : "disabled"}!`);
     }
 
 }
 
-module.exports = Stop;
+module.exports = AutoPlay;

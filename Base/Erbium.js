@@ -24,7 +24,10 @@ class Erbium extends Client {
                 "GUILD_PRESENCES",
                 "GUILD_VOICE_STATES",
                 "GUILD_WEBHOOKS"
-            ]
+            ],
+            allowedMentions: {
+                repliedUser: false
+            }
         });
 
         this.commands = new Command(this);

@@ -7,7 +7,7 @@ class TrackStart extends Event {
     }
 
     run(message, track) {
-        void message.channel.send(`🎵 | Started playing **${track.title}**!`);
+        void message.reply(`🎵 | Started playing **${track.title}**!`);
     }
 
 }

@@ -7,7 +7,7 @@ class ChannelEmpty extends Event {
     }
 
     run(message) {
-        void message.channel.send("❌ | There are no members in the voice channel, stopping the music!");
+        void message.reply("❌ | There are no members in the voice channel, stopping the music!");
     }
 
 }

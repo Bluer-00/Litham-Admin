@@ -24,7 +24,7 @@ class Discrim extends Command {
             .setTimestamp()
             .setColor("RANDOM");
 
-        return message.channel.send(embed);
+        return message.reply(embed);
     }
 
 }

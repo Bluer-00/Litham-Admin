@@ -18,11 +18,11 @@ class Colorfy extends Command {
         const user = message.mentions.users.first() || this.client.resolveUser(args[0]) || message.author;
         const color = args[1];
 
-        const m = await message.channel.send("⏱ | Please wait...");
+        const m = await message.reply("⏱ | Please wait...");
         const img = await Canvacord.colorfy(user.displayAvatarURL({ format: "png", size: 2048 }), `${color}`);
         await m.delete().catch(() => { });
 
-        return message.channel.send(new MessageAttachment(img, "color.png"));
+        return message.reply(new MessageAttachment(img, "color.png"));
     }
 
 }
