@@ -1,4 +1,6 @@
 const Command = require("../../Base/Command");
+
+// for Eval
 const Discord = require("discord.js");
 
 class Eval extends Command {
