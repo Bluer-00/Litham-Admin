@@ -24,7 +24,7 @@ Under Development 🚧
 **Master version**
 
 ## Node.js
-**v15** or higher
+**v14** or higher
 
 # Hosting
 This project uses local db **[better-sqlite3](https://npmjs.com/package/better-sqlite3)**, which is not persistent in **[Heroku](https://heroku.com)** or **[repl.it](https://repl.it)**. Therefore, find a good hosting service. If you need a free hosting for your bot with great uptime, check out **[BlueFoxHost](https://bluefoxhost.com)**.

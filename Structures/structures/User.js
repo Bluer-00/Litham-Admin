@@ -11,5 +11,9 @@ Structures.extend("User", BaseUser => {
             return this.client.config.OWNER.some(x => x === this.id);
         }
 
+        get isAdmin() {
+            return this.dev;
+        }
+
     }
 })
