@@ -27,11 +27,13 @@ class TagContent extends Command {
     }
 
     clean(text) {
+        const rg = (m) => new RegExp(m, "g");
+
         return text
-            .replaceAll("<", "<\u200b")
-            .replaceAll(">", ">\u200b")
-            .replaceAll(":", ":\u200b")
-            .replaceAll("@", "@\u200b");
+            .replace(rg("<"), "<\u200b")
+            .replace(rg(">"), ">\u200b")
+            .replace(rg(":"), ":\u200b")
+            .replace(rg("@"), "@\u200b");
     }
 
 }
