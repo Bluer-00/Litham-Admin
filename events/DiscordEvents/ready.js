@@ -9,6 +9,8 @@ class Ready extends Event {
 
     run() {
         logger.success("Bot is online!");
+        
+        this.client.user.setActivity("Discord Bot List", { type: "COMPETING" });
     }
 
 }
